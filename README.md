@@ -1,6 +1,6 @@
-OpenWrt用のスクリプト
-インターフェースが切断された際にLEDを点灯させる
-
-pppoe切断時→green:wlan点灯
-mape切断時→green:wan点灯
-wan6切断時→green:indicator点灯
+OpenWrt用のスクリプト  
+インターフェースが切断された際にLEDを点灯させる  
+  
+pppoe切断時→green:wlan点灯  
+mape切断時→green:wan点灯  
+wan6切断時→green:indicator点灯  
