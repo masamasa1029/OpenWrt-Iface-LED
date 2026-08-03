@@ -1,0 +1,42 @@
+#!/bin/sh
+
+logger "99-link-led executed: ACTION=$ACTION INTERFACE=$INTERFACE"
+
+case "$INTERFACE:$ACTION" in
+
+    pppoe:ifdown|pppoe:ifup-failed)
+        logger "99-link-led executed: green:wlan ON"
+        echo none > /sys/class/leds/green:wlan/trigger
+        echo 1 > /sys/class/leds/green:wlan/brightness
+        ;;
+
+    pppoe:ifup)
+        logger "99-link-led executed: green:wlan OFF"
+        echo 0 > /sys/class/leds/green:wlan/brightness
+        ;;
+
+
+    mape:ifdown|mape:ifup-failed)
+        logger "99-link-led executed: green:wan ON"
+        echo none > /sys/class/leds/green:wan/trigger
+        echo 1 > /sys/class/leds/green:wan/brightness
+        ;;
+
+    mape:ifup)
+        logger "99-link-led executed: green:wan OFF"
+        echo 0 > /sys/class/leds/green:wan/brightness
+        ;;
+
+
+    wan6:ifdown|wan6:ifup-failed)
+        logger "99-link-led executed: green:indicator ON"
+        echo none > /sys/class/leds/green:indicator/trigger
+        echo 1 > /sys/class/leds/green:indicator/brightness
+        ;;
+
+    wan6:ifup)
+        logger "99-link-led executed: green:indicator OFF"
+        echo 0 > /sys/class/leds/green:indicator/brightness
+        ;;
+
+esac
