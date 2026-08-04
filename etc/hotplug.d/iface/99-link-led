@@ -12,6 +12,7 @@ case "$INTERFACE:$ACTION" in
 
     pppoe:ifup)
         logger "99-link-led executed: green:wlan OFF"
+        echo none > /sys/class/leds/green:wlan/trigger
         echo 0 > /sys/class/leds/green:wlan/brightness
         ;;
 
@@ -24,6 +25,7 @@ case "$INTERFACE:$ACTION" in
 
     mape:ifup)
         logger "99-link-led executed: green:wan OFF"
+        echo none > /sys/class/leds/green:wan/trigger
         echo 0 > /sys/class/leds/green:wan/brightness
         ;;
 
@@ -36,6 +38,7 @@ case "$INTERFACE:$ACTION" in
 
     wan6:ifup)
         logger "99-link-led executed: green:indicator OFF"
+        echo none > /sys/class/leds/green:indicator/trigger
         echo 0 > /sys/class/leds/green:indicator/brightness
         ;;
 
